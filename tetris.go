@@ -46,7 +46,7 @@ func (g *Game) Run() {
 		g.PieceRow = 3
 
 		ticker.Stop()
-		ticker := time.NewTicker(1 * 1000 * 1000 * 1000 / (1 << (rowsDeleted / 5)))
+		ticker = time.NewTicker(1 * 1000 * 1000 * 1000 / (1 << (rowsDeleted / 5)))
 
 		for !g.PieceCollided() {
 			g.Print()
@@ -226,6 +226,11 @@ func PrintBoard(b Board) {
 	}
 	fmt.Println("------------")
 	fmt.Println("ctrl-c to quit. Arrows to move/rotate.")
+
+	err = term.Close() // TODO: fix this ridiculous hack
+	if err != nil {
+		panic(err)
+	}
 }
 
 type Move int
