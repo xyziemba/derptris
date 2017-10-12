@@ -5,7 +5,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/pkg/term"
 )
 
@@ -107,7 +106,6 @@ func (g *Game) PieceCollided() bool {
 func (g *Game) IsDone() bool {
 	for _, i := range g.Board[4] {
 		if i != 0 {
-			spew.Println(g.Board)
 			return true
 		}
 	}
